@@ -5,20 +5,24 @@ let oneEuroIs = {
     "GBP": 0.87, // british pound
 }
 
-function fromDollarToYen(dollar) {
+const fromEuroToDollar = function (valueInEuro) {
+    // Convert the given valueInEuro to dollars
+    let valueInDollar = valueInEuro * 1.07;
+    // return the dollar value
+    return valueInDollar;
+}
+
+const fromDollarToYen = function (dollar) {
     // 1 dollar equivale a los siguientes yenes:
-    const yenRate = 109.63;
-    return dollar * yenRate;
+    let yenRate = 156.5 * dollar;
+    return yenRate;
 }
 
-function fromEuroToDollar(euro) {
-    // 1 euro equivale a los siguientes dollares
-    const dollarRate = 1.18;
-    return euro * dollarRate;
-}
-
-function fromYenToPound(yen) {
+const fromYenToPound = function (yen) {
     // 1 yen equivale a las siguientes libras
-    const poundRate = 0.0066;
-    return yen * poundRate;
+    let poundRate = 0.87 * yen;
+    return poundRate;
 }
+
+// We include fromEuroToDollar here as well because it needs to be exported
+module.exports = { fromEuroToDollar, fromDollarToYen, fromYenToPound }
